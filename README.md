@@ -5,10 +5,7 @@
 Some publicly available links:
 - [PowerShorter Unboxing Guide](https://yichen115.github.io/%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97/PowerShorter%E5%BC%80%E7%AE%B1%E4%B8%8E%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/)
 
-
-
-> **Search for "深圳市纽创信安科技开发有限公司" (Shenzhen Nucstar Technology Development Co., Ltd.) on Taobao — the enterprise store lets you purchase the device.**
-
+> **You can purchase the device from the [OSR Lab Store](https://www.aliexpress.com/store/1105844326) on AliExpress.**
 
 ## Product Overview
 
