@@ -13,9 +13,9 @@ Some publicly available links:
 
 <img src="./images/powershorter.png"  width="600">
 
-PowerShorter is a dedicated device built for voltage short-circuit fault injection attack testing. With PowerShorter you can momentarily short-circuit the device under test, disrupting its normal operation.
+PowerShorter is a dedicated device built for voltage crowbar fault injection attack testing. With PowerShorter you can momentarily crowbar the core supply of the device under test, disrupting its normal operation.
 
-PowerShorter has two independent short-circuit engines. Each engine listens for a trigger and outputs a precise level-pulse pattern control; these level-pulse patterns achieve a momentary short circuit as they pass through high-speed MOSFETs.
+PowerShorter has two independent crowbar engines. Each engine listens for a trigger and outputs a precise level-pulse pattern control; these level-pulse patterns momentarily crowbar the target supply as they pass through high-speed MOSFETs.
 
 PowerShorter integrates one relay, one solid-state relay, and two GPIOs, used for automated control such as rebooting the device under test.
 
@@ -31,7 +31,7 @@ If you want visualized display of fault results, refer to the [FaultViz project]
 
 ### Device Specifications
 - Pulse control precision: 10ns
-- Maximum number of configurable short-circuit pulse patterns: 8
+- Maximum number of configurable crowbar pulse patterns: 8
 - Maximum pattern repeat count: 256
 - GPIO outputs: 2 channels (3.3V)
 - Relay output: 1 channel, max input 50V 7A
@@ -41,7 +41,7 @@ If you want visualized display of fault results, refer to the [FaultViz project]
   + Manual trigger
   + Edge-count trigger
 
-### Short-Circuit Fault Usage Example
+### Crowbar Fault Usage Example
 ```python
 import power_shorter as ps
 
@@ -58,7 +58,7 @@ assert s == 'armed'
 ... # wait for the rising edge to complete the trigger
 assert s == 'glitched'
 ```
-The key call in the code above is `engine_cfg`. In this example, the rising edge is used as the trigger event. After the event occurs, it waits 2000ns, then short-circuits for 1000ns, then waits another 1000ns, then short-circuits for 230ns, and finally returns to the normal state. This is equivalent to performing two short-circuit fault injections on the target device. The pattern list supports at most 8 states. The `trigger_mode` parameter can switch the trigger event between rising edge / falling edge, and the `pattern_repeat` parameter can control how many times the pattern list is repeated. For example, in this example, if `pattern_repeat` is set to 2, the pattern is repeated twice, i.e. 4 short-circuit fault injections are performed. By setting `trigger_edges`, multiple edges can be monitored as the trigger event; `trigger_edges` is useful when using some bus protocol communication (such as UART) as the trigger event.
+The key call in the code above is `engine_cfg`. In this example, the rising edge is used as the trigger event. After the event occurs, it waits 2000ns, then holds the crowbar for 1000ns, then waits another 1000ns, then holds the crowbar for 230ns, and finally returns to the normal state. This is equivalent to performing two crowbar fault injections on the target device. The pattern list supports at most 8 states. The `trigger_mode` parameter can switch the trigger event between rising edge / falling edge, and the `pattern_repeat` parameter can control how many times the pattern list is repeated. For example, in this example, if `pattern_repeat` is set to 2, the pattern is repeated twice, i.e. 4 crowbar fault injections are performed. By setting `trigger_edges`, multiple edges can be monitored as the trigger event; `trigger_edges` is useful when using some bus protocol communication (such as UART) as the trigger event.
 
 ### Example of Driving EMPulser for Electromagnetic Fault Injection
 ```python
