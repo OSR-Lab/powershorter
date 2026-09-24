@@ -1,6 +1,6 @@
 # PowerShorter
 
-A dedicated hardware tool for voltage short-circuit fault injection with 10 ns pulse precision, which can also drive EMPulser and Cyclewarper for electromagnetic and clock fault attacks.
+A dedicated hardware tool for voltage crowbar fault injection with 10 ns pulse precision, which can also drive EMPulser and Cyclewarper for electromagnetic and clock fault attacks.
 
 <img src="./images/hardware.jpg"  width="600">
 
